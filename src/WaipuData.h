@@ -117,6 +117,7 @@ public:
   PVR_ERROR DeleteTimer(const kodi::addon::PVRTimer& timer, bool forceDelete) override;
   PVR_ERROR AddTimer(const kodi::addon::PVRTimer& timer) override;
   PVR_ERROR GetDriveSpace(uint64_t& total, uint64_t& used) override;
+  PVR_ERROR OnSystemWake() override;
 
 private:
   bool m_isConnected = false;
@@ -172,6 +173,7 @@ private:
   WAIPU_LOGIN_STATUS m_login_status = WAIPU_LOGIN_STATUS::UNKNOWN;
   HLSAllowlist m_hls_allowlist;
   Categories m_categories;
+  time_t m_lastUpdate = 0;
 
   void ReadSettings();
   bool ParseAccessToken();
