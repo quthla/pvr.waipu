@@ -1,0 +1,23 @@
+name: Build win
+on: [push, pull_request]
+env:
+  app_id: pvr.waipu
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout Kodi repo
+      uses: actions/checkout@v4
+      with:
+        repository: xbmc/xbmc
+        ref: Omega
+        path: xbmc
+    - name: Checkout add-on repo
+      uses: actions/checkout@v4
+      with:
+        path: ${{ env.app_id }}
+    - name: Build
+      run: |
+        cd xbmc\tools\buildsteps\windows\x64
+        ./make-addons.bat ${{ env.app_id }}
