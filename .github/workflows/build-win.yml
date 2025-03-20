@@ -20,6 +20,6 @@ jobs:
     - name: Build
       run: |
         cd xbmc\tools\buildsteps\windows\x64
-        set ADDON_SRC_PREFIX=${{ GITHUB_WORKSPACE }}
-        echo ADDON_SRC_PREFIX
+        set ADDON_SRC_PREFIX=%GITHUB_WORKSPACE
+        set
         ./make-addons.bat ${{ env.app_id }}
