@@ -26,3 +26,6 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         path: xbmc/cmake/addons/build/zip/*
+    - uses: actions/upload-artifact@v4
+      with:
+        path: xbmc/project/Win32BuildSetup/BUILD_WIN32/addons/pvr.waipu/pvr.waipu.dll
